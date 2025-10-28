@@ -1,0 +1,14 @@
+// Simple stubbed virus scan. Replace with ClamAV or cloud-scan API.
+const fs = require('fs');
+module.exports = {
+  async scan(filePath) {
+    // very naive "scan": mark large files as suspicious in demo
+    try {
+      const stat = fs.statSync(filePath);
+      const result = { clean: stat.size < 50 * 1024 * 1024, size: stat.size };
+      return result;
+    } catch (e) {
+      return { clean: false, error: 'missing file' };
+    }
+  }
+};
