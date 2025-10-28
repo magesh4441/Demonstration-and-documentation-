@@ -1,0 +1,14 @@
+import React from 'react';
+
+export default function UploadItem({ item }){
+  return (
+    <div style={{border:'1px solid #ddd', padding:8, marginBottom:8}}>
+      <div><strong>{item.file.name}</strong> — {item.state}</div>
+      <div>Progress: {item.progress}%</div>
+      <div>
+        {item._tus && <button onClick={() => item._tus.abort()}>Pause</button>}
+        {item._tus && <button onClick={() => item._tus.start()}>Resume</button>}
+      </div>
+    </div>
+  );
+}
