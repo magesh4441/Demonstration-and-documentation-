@@ -1,0 +1,21 @@
+file-upload-manager-phase5/
+├─ README.md
+├─ server/
+│  ├─ package.json
+│  ├─ index.js            # Express + tus-node-server (resumable) + metadata APIs
+│  ├─ virusScanner.js     # stub for virus scanning (replace with real engine)
+│  ├─ storage/            # local storage adapter (for demo)
+│  └─ Dockerfile
+├─ client/
+│  ├─ package.json
+│  ├─ public/
+│  └─ src/
+│     ├─ App.jsx          # React demo app (Drag'n'Drop, previews, chunked uploads via tus-js-client)
+│     ├─ api.js           # helpers for metadata, presigned urls, list
+│     ├─ UploadItem.jsx
+│     └─ styles.css
+├─ infra/
+│  └─ docker-compose.yml
+└─ tests/
+   ├─ server.test.js
+   └─ client.test.js
